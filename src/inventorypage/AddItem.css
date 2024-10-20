@@ -1,0 +1,13 @@
+.title{
+    font-family:"Jersey 10", sans-serif;
+    color: rgb(255, 255, 255);
+    margin-left: 100px;
+}
+.add{
+    background-color:rgb(1, 70, 126);
+    height: 100px;
+}
+.List{
+    min-height: 81.6vh;
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+}

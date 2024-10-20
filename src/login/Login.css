@@ -1,0 +1,29 @@
+body { 
+  margin: 0;
+}
+.back{
+  background:url('/Users/amarnathkg/Documents/ReactCC/project/src/luke-chesser-pJadQetzTkI-unsplash.jpg');
+  display:flex;
+  align-items: center;
+  background-size: cover;
+  height: 100vh;
+}
+.sback{
+  background-color: rgba(0, 0, 0,0.3);
+  border-radius: 19px;
+  display:flex;
+  align-items: center;
+  width: 95%;
+  height: 95vh;
+  margin-left: 35px;
+}
+.title{
+  font-family:"Jersey 10", sans-serif;
+  font-weight: 400;
+  font-size:330%;
+  color: white;
+  padding: 5px;
+}
+.log{
+  margin-bottom: 50px;
+}

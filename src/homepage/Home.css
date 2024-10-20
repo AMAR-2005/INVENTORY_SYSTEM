@@ -1,0 +1,61 @@
+.topBar{
+    overflow: hidden;
+    background-color: white;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+}
+.Dashboard{
+    margin-top: 65px;
+    color: white;
+    background-image: linear-gradient(to right, #6991c7 0%, #a3bded 100%);
+    /* background-image: linear-gradient(to right, #a7a6cb 0%, #8989ba 52%, #8989ba 100%); */
+}
+
+.card{
+    background-image: linear-gradient(to right, #6991c7 0%, #a3bded 100%);
+    /* background-image: linear-gradient(to right, #a7a6cb 0%, #8989ba 52%, #8989ba 100%); */
+}
+.Navbar{
+    color: white;
+}
+.head{
+    font-family:"Jersey 10", sans-serif;
+    color: black;
+    font-size:200%;
+    padding: 5px;
+}
+.head1{
+    font-family:"Jersey 10", sans-serif;
+    color: black;
+    font-size:200%;
+    padding: 5px;
+}
+.dash{
+    background-color: rgba(1, 15, 72, 0.265);
+}
+.inC{
+
+    background-color: rgb(78, 181, 197);
+    color: white;
+}
+.inM{
+    color: white;
+    background-color:rgb(37, 96, 68);
+}
+.inP{
+    background-color: rgb(206, 44, 69);
+    color: white;
+}
+.CTask{
+    background-color: rgb(4, 118, 175);
+    color: white;
+}
+.MIncom{
+    background-color: rgb(31, 140, 115);
+    color: white;
+}
+.PTask{
+    background-color: rgb(250, 38, 91);
+    color: white;
+}

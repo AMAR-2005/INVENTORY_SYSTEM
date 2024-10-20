@@ -1,0 +1,110 @@
+{
+  "item": [
+    {
+      "id": "4509",
+      "item": "Pencil",
+      "qty": "100",
+      "price": "5",
+      "sale": 0,
+      "temp": 0
+    },
+    {
+      "id": "453c",
+      "item": "Pen",
+      "qty": 148,
+      "price": "10",
+      "sale": 2,
+      "temp": 0
+    },
+    {
+      "id": "cbb4",
+      "item": "Eraser",
+      "qty": "50",
+      "price": "5",
+      "sale": 0,
+      "temp": 0
+    },
+    {
+      "id": "a6ec",
+      "item": "Ruler",
+      "qty": "75",
+      "price": "15",
+      "sale": 0,
+      "temp": 0
+    },
+    {
+      "id": "aefe",
+      "item": "Notes",
+      "qty": 198,
+      "price": "30",
+      "sale": 2,
+      "temp": 0
+    },
+    {
+      "id": "42f0",
+      "item": "Book",
+      "qty": "125",
+      "price": "50",
+      "sale": 0,
+      "temp": 0
+    },
+    {
+      "id": "0a6f",
+      "item": "Paper",
+      "qty": "200",
+      "price": "2",
+      "sale": 0,
+      "temp": 0
+    },
+    {
+      "id": "e72e",
+      "item": "Sketch",
+      "qty": 79,
+      "price": "20",
+      "sale": 1,
+      "temp": 0
+    }
+  ],
+  "request": [
+    {
+      "id": "f33a",
+      "item": "Pencil",
+      "qty": "4"
+    },
+    {
+      "id": "67a6",
+      "item": "Pen",
+      "qty": "10"
+    },
+    {
+      "id": "8b2b",
+      "item": "Eraser",
+      "qty": "5"
+    },
+    {
+      "id": "4390",
+      "item": "Book",
+      "qty": "1"
+    },
+    {
+      "id": "05b9",
+      "item": "Ruler",
+      "qty": "7"
+    },
+    {
+      "id": "6d2b",
+      "item": "Notes",
+      "qty": "6"
+    },
+    {
+      "id": "f03b",
+      "item": "Paper",
+      "qty": "20"
+    },
+    {
+      "id": "d40b",
+      "item": "Sketch",
+      "qty": "5"
+    }
+  ]
+}
