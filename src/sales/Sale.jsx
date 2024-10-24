@@ -106,7 +106,7 @@ function Sale() {
                                         <Grid item key={id} size={{ xs: 2}}>
                                         <ButtonBase >
                                             <Button sx={{backgroundColor:pink[700]}}variant='contained' onClick={()=>handelDelete(id)}>Delete</Button>
-                                            <Button sx={{marginLeft:1}} variant='contained' onClick={()=>handelFullfill(id)}>FULLFILL</Button>
+                                            <Button sx={{marginLeft:1}} variant='contained' onClick={()=>handelFullfill(id)}>Grant</Button>
                                         </ButtonBase>
                                         </Grid>
                                     </Grid>
