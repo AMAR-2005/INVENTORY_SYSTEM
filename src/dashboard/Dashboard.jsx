@@ -46,7 +46,7 @@ function Dashboard() {
                   </Container>
                   <Divider/>
                   <Container className='inM' sx={{height:70,display:'flex',justifyContent:"flex-start",alignItems:'center'}}>
-                  <ListItemButton sx={{display:'flex',justifyContent:"flex-start",alignItems:'center'}}>
+                  <ListItemButton onClick={toggleChange(5)} sx={{display:'flex',justifyContent:"flex-start",alignItems:'center'}}>
                     <p>VIEW REPORT</p>
                       <KeyboardArrowRightIcon sx={{marginLeft:19}}/>
                     </ListItemButton>

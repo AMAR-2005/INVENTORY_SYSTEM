@@ -24,8 +24,9 @@ import Dashboard from '../dashboard/Dashboard';
 import Purchase from '../purchase/Purchase';
 import Sale from '../sales/Sale';
 import {context} from '../ContextAPI';
+import Report from '../Report/Report';
 function Home() {
-  const {dash,invn,sale,purc,toggleChange }=useContext(context);
+  const {dash,invn,sale,purc,toggleChange,report }=useContext(context);
   const [nav, setNav] = React.useState(false);
   const toggleDrawer = (newOpen) => () => {
     setNav(newOpen);
@@ -57,7 +58,7 @@ function Home() {
       <List>
         {['Report'].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={toggleChange(5)}>
               <ListItemIcon>
                 {index === 0 ?<TimelineTwoToneIcon /> : null}
               </ListItemIcon>
@@ -87,6 +88,7 @@ function Home() {
       {invn && <AddItem/> }
       {sale && <Sale/>}
       {purc && <Purchase/> }
+      {report && <Report/> }
       <Drawer open={nav} onClose={toggleDrawer(false)}>
           {DrawerList}
       </Drawer>

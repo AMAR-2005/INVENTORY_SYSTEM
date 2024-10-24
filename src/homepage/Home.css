@@ -8,12 +8,12 @@
 .Dashboard{
     margin-top: 65px;
     color: white;
-    background-image: linear-gradient(to right, #6991c7 0%, #a3bded 100%);
+    background-image: linear-gradient(to right, #0b4b9f 0%, #a3bded 100%);
     /* background-image: linear-gradient(to right, #a7a6cb 0%, #8989ba 52%, #8989ba 100%); */
 }
 
 .card{
-    background-image: linear-gradient(to right, #6991c7 0%, #a3bded 100%);
+    background-image: linear-gradient(to right, #0b4b9f 0%, #a3bded 100%);
     /* background-image: linear-gradient(to right, #a7a6cb 0%, #8989ba 52%, #8989ba 100%); */
 }
 .Navbar{

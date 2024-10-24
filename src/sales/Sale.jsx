@@ -61,9 +61,11 @@ function Sale() {
         </Paper>
         <Paper sx={{display:"flex",justifyContent:"center",flexDirection:"column",marginTop:11,width:"98%",borderRadius:4,marginLeft:1.7,backgroundColor:teal[50],minHeight:"80vh"}}>
             <Box sx={{display:"flex",justifyContent:"space-around"}}>
-                <Paper sx={{p:1,borderRadius:3,display:"flex",flexDirection:"column",justifyContent:"space-evenly",alignItems:"center",backgroundColor:pink[400],minHeight:"70vh",width:"40%"}}>
+                <Paper sx={{p:1,borderRadius:3,display:"flex",flexDirection:"column",justifyContent:"center ",alignItems:"center",backgroundColor:pink[400],minHeight:"70vh",width:"40%"}}>
                     <Paper sx={{backgroundColor:'rgb(0, 0, 0,0.3)',borderRadius:3,p:2,width:500}}><Typography variant='h5' color='white' >TOTAL AMOUNT : {earn}</Typography></Paper>
+                    <br/>
                     <Paper sx={{backgroundColor:'rgb(0, 0, 0,0.3)',borderRadius:3,p:2,width:500}}><Typography variant='h5' color='white' >TOTAL ITEMS SOLD : {TotalItems}</Typography></Paper>
+                    <br/>
                     <Container sx={{backgroundColor:'rgb(0, 0, 0,0.3)',borderRadius:3,display:'flex',justifyContent:'center',alignItems:'center',width:530}}>
                         <BarChart layout="horizontal"  sx={(theme) => ({[`.${axisClasses.root}`]:{[`.${axisClasses.tick}, .${axisClasses.line}`]: {stroke: '#FFFFFF',strokeWidth: 3},[`.${axisClasses.tickLabel}`]: {fill: '#FFFFFF',},}})}   yAxis={[{ scaleType: 'band', data: item }]}
                         series={[{ data: income,color: '#c2e358'}]} width={500}height={300}>
