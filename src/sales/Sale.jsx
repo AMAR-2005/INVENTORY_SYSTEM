@@ -4,12 +4,12 @@ import {context} from '../ContextAPI';
 import Grid from '@mui/material/Grid2';
 import { axisClasses,BarChart } from '@mui/x-charts';
 import { Box, Button, Container, InputBase, Paper, Typography,ButtonBase } from '@mui/material'
-import { green, teal ,pink, blue} from '@mui/material/colors'
+import { green, teal ,pink} from '@mui/material/colors'
 function Sale() {
     const [data,setData]=useState([]);
     const [sales, setSales] = useState([]);
     const [input,setInput]=useState({"item":"","qty":0});
-   const {earn,item,TotalItems,income}=useContext(context);
+    const {earn,item,TotalItems,income}=useContext(context);
     const handelChange=(e)=>{
         const {name,value}=e.target;
         setInput({...input,[name]:value});

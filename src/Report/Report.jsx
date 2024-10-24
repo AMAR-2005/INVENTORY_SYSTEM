@@ -1,10 +1,10 @@
-import React,{useContext, useEffect, useState} from 'react'
+import React,{useContext, useState} from 'react'
 import axios from 'axios';
 import {context} from '../ContextAPI';
 import Grid from '@mui/material/Grid2';
-import { axisClasses,BarChart, PieChart } from '@mui/x-charts';
-import { Box, Button, Container, InputBase, Paper, Typography,ButtonBase } from '@mui/material'
-import { green, teal ,pink, blue, orange, amber, lime, indigo, lightBlue, red, lightGreen, blueGrey} from '@mui/material/colors'
+import {  PieChart } from '@mui/x-charts';
+import { Box,  Container,  Paper, Typography, } from '@mui/material'
+import { teal , blue, indigo} from '@mui/material/colors'
 function Report() {
     const [data,setData]=useState([]);
     const {earn,item,TotalItems,income,sales,chartData}=useContext(context);
