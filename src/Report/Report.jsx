@@ -4,7 +4,7 @@ import {context} from '../ContextAPI';
 import Grid from '@mui/material/Grid2';
 import {  PieChart } from '@mui/x-charts';
 import { Box,  Container,  Paper, Typography, } from '@mui/material'
-import { teal , blue, indigo} from '@mui/material/colors'
+import { teal , blue, indigo, pink} from '@mui/material/colors'
 function Report() {
     const [data,setData]=useState([]);
     const {earn,item,TotalItems,income,sales,chartData}=useContext(context);
@@ -18,6 +18,7 @@ function Report() {
     }
     logReder();
     data.sort((a, b) => b.sale - a.sale);
+    const len=data.length;
   return (
     <div style={{display:"flex",flexDirection:"column",marginTop:65,minHeight:"92.5vh"}}>
         <Paper sx={{display:"flex",alignItems:"center",zIndex:1000,marginLeft:1.7,width:"98%",backgroundColor:blue[500],position:"fixed",height:70}}>
@@ -37,9 +38,9 @@ function Report() {
                             return(
                                 <div >
                                 <br></br>
-                                <Paper className="API" key={id} sx={{ backgroundColor:'rgba(0, 0, 0,0.2)',borderRadius:2,marginLeft:0,height:40,display:"flex",padding:1,width:"97%"}} >
+                                <Paper className="API" key={id} sx={{ backgroundColor:'rgba(0, 0, 0,0.2)',borderRadius:2,marginLeft:0,height:37,display:"flex",padding:1,width:"97%"}} >
                                     <Box sx={{ flexGrow:1}} >
-                                    <Grid container  spacing={18}>
+                                    <Grid container  spacing={15}>
                                         <Grid item key={id} size={{ xs: 2}}>
                                         <Typography variant="h6"sx={{fontWeight:"bold",color:"white"}}>{index+1}</Typography>
                                         </Grid>
@@ -52,6 +53,16 @@ function Report() {
                                         <Grid item key={id} size={{ xs: 2}}>
                                         <Typography variant="h6"sx={{fontWeight:"bold",color:blue[50]}}> ₹{price*sale}</Typography>
                                         </Grid>
+                                        {index===0 && <Grid item key={id} size={{ xs:4}}>
+                                        <Paper sx={{ backgroundColor:'rgba(255, 255, 255,0.2)',borderRadius:2,justifyContent:"center",display:"flex"}}>
+                                        <Typography variant="h6"sx={{fontWeight:"bold",color:teal[100]}}>MOST SOLD</Typography>
+                                        </Paper>
+                                        </Grid>}
+                                        {index===len-1 && <Grid item key={id} size={{ xs:4}}>
+                                        <Paper sx={{ backgroundColor:'rgba(255, 255, 255,0.2)',borderRadius:2,justifyContent:"center",display:"flex"}}>
+                                        <Typography variant="h6"sx={{fontWeight:"bold",color:pink[100]}}>LEAST SOLD</Typography>
+                                        </Paper>
+                                        </Grid>}
                                     </Grid>
                                     </Box>
                                 </Paper>

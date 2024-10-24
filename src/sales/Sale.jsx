@@ -62,7 +62,7 @@ function Sale() {
         <Paper sx={{display:"flex",justifyContent:"center",flexDirection:"column",marginTop:11,width:"98%",borderRadius:4,marginLeft:1.7,backgroundColor:teal[50],minHeight:"80vh"}}>
             <Box sx={{display:"flex",justifyContent:"space-around"}}>
                 <Paper sx={{p:1,borderRadius:3,display:"flex",flexDirection:"column",justifyContent:"center ",alignItems:"center",backgroundColor:pink[400],minHeight:"70vh",width:"40%"}}>
-                    <Paper sx={{backgroundColor:'rgb(0, 0, 0,0.3)',borderRadius:3,p:2,width:500}}><Typography variant='h5' color='white' >TOTAL AMOUNT : {earn}</Typography></Paper>
+                    <Paper sx={{backgroundColor:'rgb(0, 0, 0,0.3)',borderRadius:3,p:2,width:500}}><Typography variant='h5' color='white' >TOTAL AMOUNT : ₹ {earn}</Typography></Paper>
                     <br/>
                     <Paper sx={{backgroundColor:'rgb(0, 0, 0,0.3)',borderRadius:3,p:2,width:500}}><Typography variant='h5' color='white' >TOTAL ITEMS SOLD : {TotalItems}</Typography></Paper>
                     <br/>

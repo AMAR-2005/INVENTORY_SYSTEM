@@ -3,73 +3,73 @@
     {
       "id": "4509",
       "item": "Pencil",
-      "qty": 95,
+      "qty": 93,
       "price": "5",
-      "sale": 0,
+      "sale": 2,
       "temp": 0
     },
     {
       "id": "453c",
       "item": "Pen",
-      "qty": 134,
+      "qty": 131,
       "price": "10",
-      "sale": 0,
+      "sale": 3,
       "temp": 0
     },
     {
       "id": "cbb4",
       "item": "Eraser",
-      "qty": 48,
+      "qty": 45,
       "price": "5",
-      "sale": 0,
+      "sale": 3,
       "temp": 0
     },
     {
       "id": "a6ec",
       "item": "Ruler",
-      "qty": 72,
+      "qty": 69,
       "price": "15",
-      "sale": 0,
+      "sale": 3,
       "temp": 0
     },
     {
       "id": "aefe",
       "item": "Notes",
-      "qty": 197,
+      "qty": 196,
       "price": "30",
-      "sale": 0,
+      "sale": 1,
       "temp": 0
     },
     {
       "id": "42f0",
       "item": "Book",
-      "qty": 122,
+      "qty": 121,
       "price": "50",
-      "sale": 0,
+      "sale": 1,
       "temp": 0
     },
     {
       "id": "0a6f",
       "item": "Paper",
-      "qty": 197,
+      "qty": 195,
       "price": "2",
-      "sale": 0,
+      "sale": 2,
       "temp": 0
     },
     {
       "item": "Sketch",
-      "qty": 78,
+      "qty": 77,
       "price": "20",
-      "sale": 0,
+      "sale": 1,
       "temp": 0,
       "id": "e72e"
     },
     {
       "id": "99e1",
       "item": "File",
-      "qty": "60",
+      "qty": 58,
       "price": "20",
-      "sale": 0,
+      "sale": 2,
       "temp": 0
     }
   ],
@@ -108,6 +108,11 @@
       "id": "d286",
       "item": "Pen",
       "qty": "30"
+    },
+    {
+      "id": "51d6",
+      "item": "File",
+      "qty": "10"
     }
   ]
 }
