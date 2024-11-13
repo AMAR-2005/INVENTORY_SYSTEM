@@ -20,6 +20,7 @@ function ContextAPI({children}) {
   const [req,setReq]=useState([]);
   const [request,setRequest]=useState(0);
   const [income, setIncome] = useState([]);
+  const [cost, setCost] = useState([]);
   const [item, setItem] = useState([]);
   const [earn,setEarn]=useState(0);
   const [sales, setSales] = useState([]);
@@ -31,7 +32,8 @@ function ContextAPI({children}) {
       setNoitems(data.length);
       const saleValues = data.map((item) => item.sale);
       setSales(saleValues);
-      
+      const Cost = data.map((item) => item.sale*item.mPrice);
+      setCost(Cost)
       const income = data.map((item) => item.sale*item.price);
       setIncome(income)
       const amt=data.reduce((total,item)=>{return total+item.sale*item.price},0);
@@ -53,7 +55,7 @@ function ContextAPI({children}) {
     label:value.item
   }))
   return (
-    <context.Provider value={{chartData,NoItems,item,earn,TotalItems,income,sales,request,dash,invn,purc,sale,report,toggleChange}}>
+    <context.Provider value={{cost,chartData,NoItems,item,earn,TotalItems,income,sales,request,dash,invn,purc,sale,report,toggleChange}}>
       {children}
     </context.Provider>
   )

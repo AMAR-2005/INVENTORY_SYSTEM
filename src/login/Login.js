@@ -3,37 +3,42 @@ import logo from './image.png';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import {TextField,Box,Container,Button,Typography} from '@mui/material';
+import axios from 'axios';
 function Login(){
-  let[email,setEmail]=useState('');
-  let[password,setPass]=useState('');
-  let[error,setError]=useState({email:'',password:''});
-  let[user,setUser]=useState([]);
+  const[email,setEmail]=useState('');
+  const[password,setPass]=useState('');
+  const [error,setError]=useState({email:'',password:''});
+  const [user,setUser]=useState([]);
+  const [admin,setAdmin]=useState(false);
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const log=()=>{
+    axios.get("http://localhost:3000/user")
+    .then((response)=>{
+        setUser(response.data)
+      })
+  }
+  log()
   const handleSubmit=(e)=>{
+    const check = user.find((d)=>d.email===email && d.password===password)
+    console.log(check)
     let newError={email:'',password:''};
     let valid = true;
-    if(!regex.test(email)){
+    if(!regex.test(email) || check===undefined){
       newError.email="Invalid email address";
       valid=false;
-    }
-    if(password.length<8){
+    } 
+    if(password.length<8 || check===undefined){
       newError.password="Password must be at least 8 characters long";
       valid=false;
     }
-    if(password!=="amar2007"){
-      newError.password="Wrong Password ";
-      valid=false;
-    }
-    if(email!=="amar@gmail.com"){
-      newError.email="Invalid email address";
-      valid=false;
-    }
     if(valid){
-      setUser([...user,{email,password}]);
+      {check.role==="Admin"?setAdmin(true):setAdmin(false)}
       newError.email='';
       newError.password='';
       setError(newError);
-      gotoHome();
+      if(admin){
+        gotoHome()
+      }
     }
     else{
       setError(newError);
@@ -41,10 +46,10 @@ function Login(){
   }
   const nav=useNavigate();
   const gotosignup=()=>{
-    nav("signup");
+    nav("/signup")
   }
   const gotoHome=()=>{
-    nav("home");
+    nav("/home")
   }
   return( 
     <div className='back'>

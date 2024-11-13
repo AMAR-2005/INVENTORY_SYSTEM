@@ -9,7 +9,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import '../homepage/Home.css';
-import { BarChart} from '@mui/x-charts';
+import { BarChart,LineChart} from '@mui/x-charts';
 import {Box,Typography, Container} from '@mui/material';
 import Divider from '@mui/material/Divider';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -19,13 +19,36 @@ import { context } from '../ContextAPI';
 
 function Dashboard() {
   const [data,setData]=useState([]);
-  const {NoItems,income,item,earn,sales,request,toggleChange}=useContext(context);
+  const {cost,NoItems,income,item,earn,sales,request,toggleChange}=useContext(context);
   const logReder=()=>{
         axios.get("http://localhost:3000/item")
         .then((response)=>{
           setData(response.data);
         }
       )
+  }
+  const lineChartsParams = {
+    series: [
+      
+      {
+        data: cost,
+        label: 'cost',
+        highlightScope: {
+          highlight: 'item',
+        },
+        color:"#ed0c6e",
+        valueFormatter: (value) => (value == null ? 'NaN' : value.toString()),
+       
+      },{
+        data: income,
+        label: 'Revenue',
+        highlightScope: {
+          highlight: 'item',
+        },
+        color:"#e5e0dd",
+        valueFormatter: (value) => (value == null ? 'NaN' : value.toString()),
+      },], 
+      xAxis: [{ data: item, scaleType:'point'}],
   }
   logReder();
     return (
@@ -85,11 +108,9 @@ function Dashboard() {
         </Box>
         <Box mt='33px' sx={{height:"50vh",display:'flex',justifyContent:'space-around',alignItems:'center'}}>
         <div className='dash' style={{borderRadius:10}} >
-        <Container sx={{backgroundColor:'rgb(0, 0, 0,0.3)',borderRadius:3, display:'flex',flexDirection:'column',justifyContent:'space-around',alignItems:'center'}}>
-          <Typography variant='h5' sx={{color:"white",fontWeight:"bold"}} fontFamily={'monospace'}>INCOME</Typography>
-          <BarChart layout="horizontal"  sx={(theme) => ({[`.${axisClasses.root}`]:{[`.${axisClasses.tick}, .${axisClasses.line}`]: {stroke: '#FFFFFF',strokeWidth: 3},[`.${axisClasses.tickLabel}`]: {fill: '#FFFFFF',},}})}   yAxis={[{ scaleType: 'band', data: item }]}
-            series={[{ data: income,color: '#ff9da7'}]} width={500}height={300}>
-            </BarChart>
+         <Container sx={{backgroundColor:'rgb(0, 0, 0,0.3)',borderRadius:3, display:'flex',flexDirection:'column',justifyContent:'space-around',alignItems:'center'}}>
+          <Typography variant='h5' sx={{color:"white",fontWeight:"bold"}} fontFamily={'monospace'}>Revenue vs Cost</Typography>
+             <LineChart  sx={(theme) => ({[`.${axisClasses.root}`]:{[`.${axisClasses.tick}, .${axisClasses.line}`]: {stroke: '#FFFFFF',strokeWidth: 3},[`.${axisClasses.tickLabel}`]: {fill: '#FFFFFF',},}})}  {...lineChartsParams}  width={500} height={300}/>
           </Container>
         </div>
         <div className='dash' style={{borderRadius:10}}>

@@ -1,0 +1,36 @@
+{
+  "user": [
+    {
+      "id": "40b2",
+      "email": "qwerty@gmail.com",
+      "password": "123456789",
+      "role": "Admin"
+    },
+    {
+      "id": "2ee5",
+      "email": "amar@gmail.com",
+      "password": "amar2007",
+      "role": "Admin"
+    },
+    {
+      "id": "a6c0",
+      "email": "abc@gmail.com",
+      "password": "abcdefgh",
+      "role": "Customer"
+    },
+    {
+      "id": "a390",
+      "email": "qwerty@gmail.com",
+      "password": "qwerty123",
+      "role": "Customer"
+    },
+    {
+      "id": "1758",
+      "email": "qwerty123@gmail.com",
+      "password": "123qwerty",
+      "role": "Customer"
+    }
+  ],
+  "item": [],
+  "request": []
+}

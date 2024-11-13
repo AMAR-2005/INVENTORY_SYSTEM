@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios'
-import {Box,Button ,Paper,InputBase,  Typography,ButtonBase,} from '@mui/material';
+import {Box,Button ,Paper,InputBase,  Typography,ButtonBase, Stack, Divider,} from '@mui/material';
 import "./AddItem.css"
 import Grid from '@mui/material/Grid2';
 import { green,  pink } from '@mui/material/colors';
@@ -8,7 +8,7 @@ function AddItem() {
     
     const [data,setData]=useState([]);
     const [id,setId]=useState("");
-    const [input,setInput]=useState({"item":"","qty":0,"price":0,"sale":0,"temp":0});
+    const [input,setInput]=useState({"item":"","qty":"","mPrice":"","price":"","sale":0,"temp":0});
     const [error,setError]=useState("");
     useEffect( 
         ()=>{
@@ -42,7 +42,7 @@ function AddItem() {
             axios.post("http://localhost:3000/item",input)
             .then((response)=>{
                 setData([...data,response.data]);
-                setInput({item:"",qty:0,price:0,sale:0,temp:0});
+                setInput({item:"",qty:"",mPrice:"",price:"",sale:0,temp:0});
             })
         }
     }
@@ -64,7 +64,7 @@ function AddItem() {
     }
     const handelEdit=(id)=>{
         const edit=data.find((d)=>d.id===id)
-        setInput({item:edit.item,qty:edit.qty,price:edit.price,sale:edit.sale,temp:edit.temp});
+        setInput({item:edit.item,qty:edit.qty,mPrice:edit.mPrice,price:edit.price,sale:edit.sale,temp:edit.temp});
         setId(id);
     }
 
@@ -76,15 +76,25 @@ function AddItem() {
             <InputBase name='item' value={input.item} onChange={handelChange} sx={{ ml: 1, flex: 1 }} placeholder="Item Name" />
             </Paper>
             <Paper component="form"  sx={{ marginLeft:5, display:'flex', alignItems: 'center', width:200 }}>
-            <InputBase name='qty' value={input.qty} onChange={handelChange}  sx={{ ml: 1, flex: 1 }} placeholder="Quantity" inputProps={{ 'aria-label': 'search google maps' }}/>
+            <InputBase name='qty' value={input.qty} onChange={handelChange}  sx={{ ml: 1, flex: 1 }} placeholder="Quantity" />
             </Paper>
             <Paper component="form"  sx={{ marginLeft:5, display:'flex', alignItems: 'center', width:200 }}>
-            <InputBase name='price' value={input.price} onChange={handelChange}  sx={{ ml: 1, flex: 1 }} placeholder="Price" inputProps={{ 'aria-label': 'search google maps' }}/>
+            <InputBase name='mPrice' value={input.mPrice} onChange={handelChange}  sx={{ ml: 1, flex: 1 }} placeholder="Market-Price" inputProps={{ 'aria-label': 'search google maps' }}/>
+            </Paper>
+            <Paper component="form"  sx={{ marginLeft:5, display:'flex', alignItems: 'center', width:200 }}>
+            <InputBase name='price' value={input.price} onChange={handelChange}  sx={{ ml: 1, flex: 1 }} placeholder="Selling-Price" inputProps={{ 'aria-label': 'search google maps' }}/>
             </Paper>
             <Button sx={{ marginLeft:5,backgroundColor: green[500],}} variant='contained' className ="button" type='submit' onClick={handelSubmit} >ADD</Button>
-            
         </div>
-        <div className='List' style={{marginTop:"160px"}}>
+        <Paper sx={{zIndex:1000,marginTop:"150px",overflow:"hidden",position:"fixed", display:'flex',justifyContent:"flex-start", alignItems: 'center', width:"100%",}}>
+            <Stack direction="row" sx={{marginLeft:18}}divider={<Divider orientation="vertical" flexItem />} spacing={{ xs: 100, sm: 200, md: 10 }}>
+                    <Typography variant="h6"sx={{fontWeight:"bold"}}>S.NO</Typography>
+                    <Typography variant="h6"sx={{fontWeight:"bold"}}>ITEMS</Typography>
+                    <Typography variant="h6"sx={{fontWeight:"bold"}}>QUANTITY</Typography>
+                    <Typography variant="h6"sx={{fontWeight:"bold"}}>Selling-Price</Typography>
+            </Stack>
+        </Paper>
+        <div className='List' style={{marginTop:"180px"}}>
             {data.map((datas,index)=>{
                 const {id,qty,item,price}=datas;
             return(
@@ -93,14 +103,13 @@ function AddItem() {
                 <Paper className="API" key={id} sx={{ backgroundColor:'rgba(255, 255, 255,0.2)',borderRadius:2,marginLeft:3,height:40,display:"flex",padding:1,width:"95%"}} >
                     <Box sx={{ flexGrow:1,marginLeft:15}} >
                     <Grid container  spacing={19}>
-                    {/* <div style={{opacity:1,height:1,display:"flex",marginRight:"25%"}}> */}
-                    <Grid item key={id} size={{ xs: 2}}>
+                    <Grid item key={id} size={{ xs: 1.7}}>
                     <Typography variant="h6"sx={{fontWeight:"bold",color:"white"}}>{index+1}</Typography>
                     </Grid>
-                    <Grid item key={id} size={{ xs: 2}}>
+                    <Grid item key={id} size={{ xs: 1.9}}>
                     <Typography variant="h6"sx={{fontWeight:"bold",color:"white"}}>{item}</Typography>
                     </Grid>
-                    <Grid item key={id} size={{ xs: 2}}>
+                    <Grid item key={id} size={{ xs: 2.3}}>
                     <Typography variant="h6"sx={{fontWeight:"bold",color:"white"}}>  {qty}</Typography>
                     </Grid>
                     <Grid item key={id} size={{ xs: 2}}>

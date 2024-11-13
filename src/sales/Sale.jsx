@@ -85,14 +85,14 @@ function Sale() {
                     </Paper>
                     <br/>
                     <Paper sx={{backgroundColor:'rgb(0, 0, 0,0.3)',overflow:"scroll",zIndex:0,p:1,height:"55vh",width:"95%"}}>
-                    <div style={{marginLeft:25}}>      
+                    <div style={{marginLeft:5}}>      
                         {sales.map((datas,index)=>{
                             const {id,qty,item}=datas;
                             return(
                                 <div >
                                 <br></br>
                                 <Paper className="API" key={id} sx={{ backgroundColor:'rgba(255, 255, 255,0.2)',borderRadius:2,marginLeft:0,height:40,display:"flex",padding:1,width:"97%"}} >
-                                    <Box sx={{ flexGrow:1}} >
+                                    <Box sx={{ flexGrow:1,marginLeft:5}} >
                                     <Grid container  spacing={18}>
                                         <Grid item key={id} size={{ xs: 2}}>
                                         <Typography variant="h6"sx={{fontWeight:"bold",color:"white"}}>{index+1}</Typography>

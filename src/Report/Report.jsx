@@ -8,6 +8,7 @@ import { teal , blue, indigo, pink} from '@mui/material/colors'
 function Report() {
     const [data,setData]=useState([]);
     const {earn,item,TotalItems,income,sales,chartData}=useContext(context);
+    const palette = ['#546e7a', '#e91e63',"#1a237e","#00796b","#7e57c2","#78909c","#9c27b0","#ce93d8","#26c6da","#29b6f6","#ffa726"];
   
     const logReder=()=>{
         axios.get("http://localhost:3000/item")
@@ -32,14 +33,14 @@ function Report() {
                     <Paper sx={{backgroundColor:'rgb(255, 255, 255,0.3)',borderRadius:3,p:2,width:500,justifyContent:"center",display:"flex",color:"white"}}><Typography variant='h5'>TOTAL AMOUNT : ₹ {earn}</Typography></Paper>
                     <br/>
                     <Paper sx={{borderRadius:3,backgroundColor:'rgb(255, 255, 255,0.3)',overflow:"scroll",zIndex:0,p:1,height:"55vh",width:"95%"}}>
-                    <div style={{marginLeft:25}}>      
+                    <div style={{marginLeft:5}}>      
                         {data.map((datas,index)=>{
                             const {id,qty,item,sale,price}=datas;
                             return(
                                 <div >
                                 <br></br>
                                 <Paper className="API" key={id} sx={{ backgroundColor:'rgba(0, 0, 0,0.2)',borderRadius:2,marginLeft:0,height:37,display:"flex",padding:1,width:"97%"}} >
-                                    <Box sx={{ flexGrow:1}} >
+                                    <Box sx={{ flexGrow:1,marginLeft:5}} >
                                     <Grid container  spacing={15}>
                                         <Grid item key={id} size={{ xs: 2}}>
                                         <Typography variant="h6"sx={{fontWeight:"bold",color:"white"}}>{index+1}</Typography>
@@ -78,6 +79,7 @@ function Report() {
                     <br/>
                     <Container sx={{backgroundColor:'rgb(255, 255, 255,0.3)',borderRadius:3,color:"white",display:'flex',justifyContent:'center',alignItems:'center',width:530}}>
                     <PieChart
+                        colors={palette}
                         series={[
                             {
                             data: chartData,

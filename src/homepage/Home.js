@@ -7,7 +7,7 @@ import './Home.css';
 import logo from './image.png';
 import Drawer from '@mui/material/Drawer';
 import ArrowBackIosTwoToneIcon from '@mui/icons-material/ArrowBackIosTwoTone';
-import {Box, Container} from '@mui/material';
+import {Box, Button, Container} from '@mui/material';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
@@ -25,12 +25,17 @@ import Purchase from '../purchase/Purchase';
 import Sale from '../sales/Sale';
 import {context} from '../ContextAPI';
 import Report from '../Report/Report';
+import { useNavigate } from 'react-router-dom';
 function Home() {
+  const navi=useNavigate();
   const {dash,invn,sale,purc,toggleChange,report }=useContext(context);
   const [nav, setNav] = React.useState(false);
   const toggleDrawer = (newOpen) => () => {
     setNav(newOpen);
   };
+  const gotologin=()=>{
+    navi("/");
+  }
   const DrawerList = (
     <Box sx={{ width: 250 }} onClick={toggleDrawer(false)}>
       <List sx={{marginLeft:3,display:"flex",alignItems:"center"}}>
@@ -82,6 +87,7 @@ function Home() {
       <Container sx={{display:'flex',justifyContent:'flex-end'}}>
       <IconButton ><NotificationsNoneRoundedIcon/></IconButton>
       <IconButton><SettingsIcon/></IconButton>
+      <Button onClick={gotologin}>Log out</Button>
       </Container>
       </Box>
       {dash && <Dashboard/> }
