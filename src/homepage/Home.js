@@ -3,8 +3,8 @@ import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneR
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import SettingsIcon from '@mui/icons-material/Settings';
-import './Home.css';
-import logo from './image.png';
+import '../Home.css';
+import logo from '../image.png';
 import Drawer from '@mui/material/Drawer';
 import ArrowBackIosTwoToneIcon from '@mui/icons-material/ArrowBackIosTwoTone';
 import {Box, Button, Container} from '@mui/material';

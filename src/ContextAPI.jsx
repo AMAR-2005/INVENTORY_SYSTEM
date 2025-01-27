@@ -3,18 +3,6 @@ import { createContext} from 'react'
 import axios from 'axios'
 export const context=createContext()
 function ContextAPI({children}) {
-  const [dash, setDash]=React.useState(true);
-  const [invn, setInvn]=React.useState(false);
-  const [sale, setSale]=React.useState(false);
-  const [purc, setPurc]=React.useState(false);
-  const [report, setReport]=React.useState(false);
-  const toggleChange = (id) => () => {
-    {id===1?setDash(true):setDash(false)}
-    {id===2?setInvn(true):setInvn(false)}
-    {id===3?setSale(true):setSale(false)}
-    {id===4?setPurc(true):setPurc(false)}
-    {id===5?setReport(true):setReport(false)}
-  };
   const [data,setData]=useState([]);
   const [NoItems,setNoitems]=useState(0);
   const [req,setReq]=useState([]);
@@ -55,7 +43,7 @@ function ContextAPI({children}) {
     label:value.item
   }))
   return (
-    <context.Provider value={{cost,chartData,NoItems,item,earn,TotalItems,income,sales,request,dash,invn,purc,sale,report,toggleChange}}>
+    <context.Provider value={{cost,chartData,NoItems,item,earn,TotalItems,income,sales,request}}>
       {children}
     </context.Provider>
   )

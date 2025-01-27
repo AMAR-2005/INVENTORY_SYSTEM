@@ -31,6 +31,34 @@
       "role": "Customer"
     }
   ],
-  "item": [],
+  "item": [
+    {
+      "item": "Pen",
+      "qty": "20",
+      "mPrice": "100",
+      "price": "120",
+      "sale": 2,
+      "temp": 0,
+      "id": "01f4"
+    },
+    {
+      "id": "5f9d",
+      "item": "Bag",
+      "qty": 96,
+      "mPrice": "200",
+      "price": "220",
+      "sale": 4,
+      "temp": 0
+    },
+    {
+      "id": "d4a3",
+      "item": "book",
+      "qty": "200",
+      "mPrice": "10",
+      "price": "20",
+      "sale": 0,
+      "temp": 0
+    }
+  ],
   "request": []
 }

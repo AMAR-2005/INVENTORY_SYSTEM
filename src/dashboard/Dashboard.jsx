@@ -8,7 +8,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import '../homepage/Home.css';
+import '../Home.css';
 import { BarChart,LineChart} from '@mui/x-charts';
 import {Box,Typography, Container} from '@mui/material';
 import Divider from '@mui/material/Divider';
@@ -16,8 +16,10 @@ import ListItemButton from '@mui/material/ListItemButton';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import { context } from '../ContextAPI';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
+  const navigate=useNavigate();
   const [data,setData]=useState([]);
   const {cost,NoItems,income,item,earn,sales,request,toggleChange}=useContext(context);
   const logReder=()=>{
@@ -69,7 +71,7 @@ function Dashboard() {
                   </Container>
                   <Divider/>
                   <Container className='inM' sx={{height:70,display:'flex',justifyContent:"flex-start",alignItems:'center'}}>
-                  <ListItemButton onClick={toggleChange(5)} sx={{display:'flex',justifyContent:"flex-start",alignItems:'center'}}>
+                  <ListItemButton onClick={()=> navigate('/report') } sx={{display:'flex',justifyContent:"flex-start",alignItems:'center'}}>
                     <p>VIEW REPORT</p>
                       <KeyboardArrowRightIcon sx={{marginLeft:19}}/>
                     </ListItemButton>
@@ -84,7 +86,7 @@ function Dashboard() {
                   </Container>
                   <Divider/>
                   <Container className="inC" sx={{height:70,display:'flex',justifyContent:"space-evenly",alignItems:'center'}}>
-                  <ListItemButton onClick={toggleChange(2)} sx={{display:'flex',justifyContent:"flex-start",alignItems:'center'}}>
+                  <ListItemButton onClick={()=> navigate('/inventory')} sx={{display:'flex',justifyContent:"flex-start",alignItems:'center'}}>
                       <p>VIEW INVENTORY</p>
                       <KeyboardArrowRightIcon sx={{marginLeft:19}}/>
                   </ListItemButton>
@@ -99,7 +101,7 @@ function Dashboard() {
                   </Container>
                   <Divider/>
                   <Container className="inP"sx={{height:70,display:'flex',justifyContent:"flex-start",alignItems:'center'}}>
-                  <ListItemButton onClick={toggleChange(3)} sx={{display:'flex',justifyContent:"flex-start",alignItems:'center'}}>
+                  <ListItemButton onClick={()=>  navigate('/sales')} sx={{display:'flex',justifyContent:"flex-start",alignItems:'center'}}>
                     <p>VIEW REQUEST</p>
                       <KeyboardArrowRightIcon sx={{marginLeft:19}}/>
                     </ListItemButton>

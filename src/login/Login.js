@@ -49,7 +49,7 @@ function Login(){
     nav("/signup")
   }
   const gotoHome=()=>{
-    nav("/home")
+    nav("/dashboard")
   }
   return( 
     <div className='back'>
