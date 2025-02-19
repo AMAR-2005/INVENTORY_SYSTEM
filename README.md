@@ -15,17 +15,22 @@ The Inventory Management System is a web-based application built using React and
 	•	Styling: CSS, Material UI Components
 	•	Routing: React Router
 
-##🖥️ Usage
-	1.	Login & Navigate
-	•	Start the app and navigate through the dashboard.
-	2.	Add Items to Inventory
-	•	Enter item details (name, quantity, price) and click “ADD.”
-	3.	Manage Inventory
-	•	Edit, delete, or reset stock items as needed.
-	4.	Process Sales & Purchases
-	•	Add new purchases and process sales transactions.
-	5.	View Reports
-	•	Generate inventory and sales reports
+## 🖥️ Usage
+
+- **Login & Navigate**  
+  - Start the app and navigate through the dashboard.  
+
+- **Add Items to Inventory**  
+  - Enter item details (name, quantity, price) and click **"ADD"**.  
+
+- **Manage Inventory**  
+  - Edit, delete, or reset stock items as needed.  
+
+- **Process Sales & Purchases**  
+  - Add new purchases and process sales transactions.  
+
+- **View Reports**  
+  - Generate inventory and sales reports. 
 
 ##Login
 <img width="1470" alt="Screenshot 2025-02-19 at 8 53 53 AM" src="https://github.com/user-attachments/assets/96fc7e29-36ef-497e-822c-25aa265774d1" />
