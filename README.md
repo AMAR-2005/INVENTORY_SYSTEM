@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# InventoryManagement 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Inventory Management System is a web-based application built using React and Material UI. It allows businesses to manage their inventory, track purchases, and sales, and generate reports efficiently.
 
-## Available Scripts
+## 🛠️ Features
+	•	📊 Dashboard: Provides an overview of total earnings and inventory status.
+	•	📦 Inventory Management: Add, edit, delete, and reset stock items.
+	•	🛒 Purchases & Sales: Manage stock purchases and sales transactions.
+	•	📑 Reports: View detailed reports of inventory and sales.
 
-In the project directory, you can run:
+## 🚀 Technologies Used
+	•	Frontend: React.js, Material UI
+	•	State Management: React Context API
+	•	Backend (API): RestApi
+	•	Styling: CSS, Material UI Components
+	•	Routing: React Router
 
-### `npm start`
+##🖥️ Usage
+	1.	Login & Navigate
+	•	Start the app and navigate through the dashboard.
+	2.	Add Items to Inventory
+	•	Enter item details (name, quantity, price) and click “ADD.”
+	3.	Manage Inventory
+	•	Edit, delete, or reset stock items as needed.
+	4.	Process Sales & Purchases
+	•	Add new purchases and process sales transactions.
+	5.	View Reports
+	•	Generate inventory and sales reports
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##Login
+<img width="1470" alt="Screenshot 2025-02-19 at 8 53 53 AM" src="https://github.com/user-attachments/assets/96fc7e29-36ef-497e-822c-25aa265774d1" />
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##Signup
+<img width="1455" alt="Screenshot 2025-02-19 at 9 57 15 PM" src="https://github.com/user-attachments/assets/c54261bd-8d96-4ec6-9d7e-84a981d09da4" />
 
-### `npm test`
+##Dashboard
+<img width="1470" alt="Screenshot 2025-02-19 at 9 03 32 PM" src="https://github.com/user-attachments/assets/43df0a0a-24b6-4d21-9e1d-e58c8ff57f5e" />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##Navigation
+<img width="1449" alt="Screenshot 2025-02-19 at 9 34 45 PM" src="https://github.com/user-attachments/assets/2c22f733-00c5-4577-b439-b7df11898b37" />
 
-### `npm run build`
+##Inventory
+<img width="1470" alt="Screenshot 2025-02-19 at 8 55 48 AM" src="https://github.com/user-attachments/assets/e88c2a34-1b2d-4d31-8834-f177737fcd24" />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##Sales
+<img width="1470" alt="Screenshot 2025-02-19 at 8 57 48 AM" src="https://github.com/user-attachments/assets/ba459d83-246e-491a-863a-ca01345cd451" />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##Purchase
+<img width="1470" alt="Screenshot 2025-02-19 at 8 57 59 AM" src="https://github.com/user-attachments/assets/d689648c-70fa-40d9-b2e3-ab11855a9edf" />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##Report
+<img width="1470" alt="Screenshot 2025-02-19 at 8 58 15 AM" src="https://github.com/user-attachments/assets/233bc217-3ac0-4732-87f9-9d072be5ac84" />
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
