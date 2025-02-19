@@ -32,30 +32,29 @@ The Inventory Management System is a web-based application built using React and
 - **View Reports**  
   - Generate inventory and sales reports. 
 
-##Login
-<img width="1470" alt="Screenshot 2025-02-19 at 8 53 53 AM" src="https://github.com/user-attachments/assets/96fc7e29-36ef-497e-822c-25aa265774d1" />
-
-##Signup
-<img width="1455" alt="Screenshot 2025-02-19 at 9 57 15 PM" src="https://github.com/user-attachments/assets/c54261bd-8d96-4ec6-9d7e-84a981d09da4" />
-
-##Dashboard
+## Dashboard
 <img width="1470" alt="Screenshot 2025-02-19 at 9 03 32 PM" src="https://github.com/user-attachments/assets/43df0a0a-24b6-4d21-9e1d-e58c8ff57f5e" />
 
-##Navigation
+## Navigation
 <img width="1449" alt="Screenshot 2025-02-19 at 9 34 45 PM" src="https://github.com/user-attachments/assets/2c22f733-00c5-4577-b439-b7df11898b37" />
 
-##Inventory
+## Inventory
 <img width="1470" alt="Screenshot 2025-02-19 at 8 55 48 AM" src="https://github.com/user-attachments/assets/e88c2a34-1b2d-4d31-8834-f177737fcd24" />
 
-##Sales
+## Sales
 <img width="1470" alt="Screenshot 2025-02-19 at 8 57 48 AM" src="https://github.com/user-attachments/assets/ba459d83-246e-491a-863a-ca01345cd451" />
 
-##Purchase
+## Purchase
 <img width="1470" alt="Screenshot 2025-02-19 at 8 57 59 AM" src="https://github.com/user-attachments/assets/d689648c-70fa-40d9-b2e3-ab11855a9edf" />
 
-##Report
+## Report
 <img width="1470" alt="Screenshot 2025-02-19 at 8 58 15 AM" src="https://github.com/user-attachments/assets/233bc217-3ac0-4732-87f9-9d072be5ac84" />
 
+## Login
+<img width="1470" alt="Screenshot 2025-02-19 at 8 53 53 AM" src="https://github.com/user-attachments/assets/96fc7e29-36ef-497e-822c-25aa265774d1" />
+
+## Signup
+<img width="1455" alt="Screenshot 2025-02-19 at 9 57 15 PM" src="https://github.com/user-attachments/assets/c54261bd-8d96-4ec6-9d7e-84a981d09da4" />
 
 
 
