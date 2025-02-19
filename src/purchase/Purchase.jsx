@@ -1,70 +1,61 @@
-import React from 'react'
-import { useState,useEffect } from 'react';
-import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import axios from 'axios';
-import "./Purchase.css";
-import "../inventorypage/AddItem";
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import { Box, Button, Paper, Typography, } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import {Button ,Paper, Typography,Box,} from '@mui/material';
-import { createContext,useContext } from 'react'
-import {  blue, pink, red, teal } from '@mui/material/colors';
+import { blue, pink, teal } from '@mui/material/colors';
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
+import { context } from '../ContextAPI';
+import "../inventorypage/AddItem";
+import "./Purchase.css";
 function Purchase() {
-  const context=createContext();
   const [error,setError]=useState("");
   const [data,setData]=useState([]);
-  useEffect( 
-    ()=>{
-        try{
-            axios.get("http://localhost:3000/item")
-            .then((response)=>{
-                setData(response.data);
-            }
-            )
-         }
-         catch(error){
-            setError(error.message);
-         }
-     }
-    ,[])
-    const handelSubmit=(id)=>{
-        const edit=data.find((d)=>d.id===id)
-        edit.qty=edit.qty-edit.temp;
-        edit.sale=edit.sale+edit.temp;
-        edit.temp=0;
-        axios.put(`http://localhost:3000/item/${id}`,edit)
-        .then((response)=>{
-            setData(data.map((item)=>(item.id===id?response.data:item)));
-        })
+  const { updateData } = useContext(context);
+  const fetchData = async () => {
+    try {
+        const response = await axios.get('http://localhost:3000/item');
+        setData(response.data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
     }
-    const handelAdd=(id)=>{
-        const edit=data.find((d)=>d.id===id)
-        if(Number(edit.qty)>edit.temp){
-            edit.temp = edit.temp + 1;
-            axios.put(`http://localhost:3000/item/${id}`,edit)
-            .then((response)=>{
-                setData(data.map((item)=>(item.id===id?response.data:item)));
-            })
+};
+
+useEffect(() => {
+    fetchData();
+}, []);
+const handelSubmit = async (id) => {
+    try {
+        const edit = data.find((d) => d.id === id);
+        if (edit) {
+            edit.qty -= edit.temp;
+            edit.sale += edit.temp;
+            edit.temp = 0;
+            await axios.put(`http://localhost:3000/item/${id}`, edit);
+            updateData();
         }
+    } catch (error) {
+        setError(error.message);
     }
-    const handelSub=(id,temp)=>{
-        const edit=data.find((d)=>d.id===id)
-        if(edit.temp>0)
-            {
-                edit.temp = edit.temp - 1;
-                axios.put(`http://localhost:3000/item/${id}`,edit)
-                .then((response)=>{
-                    setData(data.map((item)=>(item.id===id?response.data:item)));
-                })
-            }
-        }
-        return (
-            <context.Provider value={{handelAdd,handelSub,handelSubmit}}>
-                <Main/>
-            </context.Provider>
-    )
-    function Main(){
-        const {handelAdd,handelSub,handelSubmit}=useContext(context);
+};
+
+const handelAdd = async (id) => {
+    const edit = data.find((d) => d.id === id);
+    if (edit && Number(edit.qty) > edit.temp) {
+        edit.temp += 1;
+        await axios.put(`http://localhost:3000/item/${id}`, edit);
+        updateData(); 
+    }
+};
+
+const handelSub = async (id) => {
+    const edit = data.find((d) => d.id === id);
+    if (edit && edit.temp > 0) {
+        edit.temp -= 1;
+        await axios.put(`http://localhost:3000/item/${id}`, edit);
+        updateData(); 
+    }
+};
         return(
             <div className='Purch' style={{display:"flex",flexDirection:"column",marginTop:65,minHeight:"92.5vh"}}>
             <Paper sx={{backgroundImage:"linear-gradient(15deg, #13547a 0%, #80d0c7 100%)",display:"flex",alignItems:"center",zIndex:1000,marginLeft:1.7,width:"98%",position:"fixed",height:70}}>
@@ -83,15 +74,13 @@ function Purchase() {
                             <Button variant='contained'  sx={{backgroundColor:pink[400]}} onClick={()=>handelSubmit(id)}>SELL</Button>
                         </Grid>
                 )
-            })}
-            </Grid>
+                     })}
+                </Grid>
             </Box>
         </Paper>
         </div>
     
         )
     }
-  
-}
 
 export default Purchase

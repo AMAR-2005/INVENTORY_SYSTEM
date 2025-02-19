@@ -8,12 +8,12 @@
 .Dashboard{
     margin-top: 65px;
     color: white;
-    background-image: linear-gradient(to right, #0b4b9f 0%, #a3bded 100%);
+    background-image: linear-gradient(to right, #000000 0%, #041e57 100%);
     /* background-image: linear-gradient(to right, #a7a6cb 0%, #8989ba 52%, #8989ba 100%); */
 }
 
 .card{
-    background-image: linear-gradient(to right, #0b4b9f 0%, #a3bded 100%);
+    background-image: linear-gradient(to right, #000000 0%, #020e5c 100%);
     /* background-image: linear-gradient(to right, #a7a6cb 0%, #8989ba 52%, #8989ba 100%); */
 }
 .Navbar{
@@ -36,7 +36,7 @@
 }
 .inC{
 
-    background-color: rgb(78, 181, 197);
+    background-color: rgb(1, 43, 101);
     color: white;
 }
 .inM{
@@ -48,7 +48,7 @@
     color: white;
 }
 .CTask{
-    background-color: rgb(4, 118, 175);
+    background-color: rgb(2, 94, 152);
     color: white;
 }
 .MIncom{

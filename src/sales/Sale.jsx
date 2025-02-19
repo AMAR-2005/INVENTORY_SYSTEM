@@ -9,51 +9,76 @@ function Sale() {
     const [data,setData]=useState([]);
     const [sales, setSales] = useState([]);
     const [input,setInput]=useState({"item":"","qty":0});
-    const {earn,item,TotalItems,income}=useContext(context);
+    const { updateData, earn, TotalItems, item, income } = useContext(context); 
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('http://localhost:3000/request');
+            setSales(response.data);
+            const response2 = await axios.get('http://localhost:3000/item');
+            setData(response2.data);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+        fetchData();
+      }, [context]);
     const handelChange=(e)=>{
         const {name,value}=e.target;
         setInput({...input,[name]:value});
     }
-    useEffect(()=>{
-        axios.get("http://localhost:3000/request")
-        .then((response)=>{
-            setSales(response.data);
-        })
-    })
-    const logReder=()=>{
-        axios.get("http://localhost:3000/item")
-        .then((response)=>{
-            setData(response.data);
-        })
-    }
-    logReder();
-    const handelSubmit=(e)=>{
-        axios.post("http://localhost:3000/request",input)
-        .then((response)=>{
-            setInput({item:"",qty:0});
-        })
-    }
-    const handelDelete=(id)=>{
-        axios.delete(`http://localhost:3000/request/${id}`)
-        .then(()=>{
-            setSales(sales.filter((d)=>d.id!==id))
-        })
-    }
-    const handelFullfill=(id)=>{
-        const edit2=sales.find((d)=>d.id===id)
-        const edit1=data.find((d)=>d.item===edit2.item)
-        const n1=parseInt(edit1.qty)
-        const n2=parseInt(edit2.qty)
-        if((n1>=n2)){
-            edit1.qty=edit1.qty-n2
-            edit1.sale=edit1.sale+parseInt(edit2.qty)
-            handelDelete(id)
-            axios.put(`http://localhost:3000/item/${edit1.id}`, edit1)
-            .then((response)=>{
-                setData(data.map((item)=>(item.id===edit1.id?response.data:item)));
-            })
+    const handelSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post("http://localhost:3000/request", input);
+            setSales((prevData) => [...prevData, response.data]); 
+            setInput({ item: "", qty: 0 });
+            updateData() 
+        } catch (error) {
+            console.error("Error adding request:", error);
         }
-    }
+    };
+    const handelDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:3000/request/${id}`);
+            setSales(sales.filter((d) => d.id !== id));
+            updateData();
+        } catch (error) {
+            console.error("Error deleting request:", error);
+        }
+    };
+    const handelFullfill = async (id) => {
+        try {
+            const edit2 = sales.find((d) => d.id === id);
+            if (!edit2) {
+                console.error("Request item not found.");
+                return;
+            }
+    
+            const edit1 = data.find((d) => d.item.toLowerCase() === edit2.item.toLowerCase());
+            if (!edit1) {
+                console.error("Item not found in inventory.");
+                return;
+            }
+    
+            const n1 = parseInt(edit1.qty, 10);
+            const n2 = parseInt(edit2.qty, 10);
+            if (n1 >= n2) {
+                const updatedItem = {
+                    ...edit1,
+                    qty: n1 - n2,
+                    sale: (parseInt(edit1.sale, 10) || 0) + n2,
+                };
+                await axios.put(`http://localhost:3000/item/${edit1.id}`, updatedItem);
+                handelDelete(id);
+                updateData();
+            } else {
+                console.error("Not enough stock to fulfill the request.");
+            }
+        } catch (error) {
+            console.error("Error fulfilling request:", error);
+        }
+    };
   return (
     <div style={{display:"flex",flexDirection:"column",marginTop:65,minHeight:"92.5vh"}}>
         <Paper sx={{display:"flex",alignItems:"center",zIndex:1000,marginLeft:1.7,width:"98%",backgroundColor:teal[500],position:"fixed",height:70}}>
@@ -67,7 +92,7 @@ function Sale() {
                     <Paper sx={{backgroundColor:'rgb(0, 0, 0,0.3)',borderRadius:3,p:2,width:500}}><Typography variant='h5' color='white' >TOTAL ITEMS SOLD : {TotalItems}</Typography></Paper>
                     <br/>
                     <Container sx={{backgroundColor:'rgb(0, 0, 0,0.3)',borderRadius:3,display:'flex',justifyContent:'center',alignItems:'center',width:530}}>
-                        <BarChart layout="horizontal"  sx={(theme) => ({[`.${axisClasses.root}`]:{[`.${axisClasses.tick}, .${axisClasses.line}`]: {stroke: '#FFFFFF',strokeWidth: 3},[`.${axisClasses.tickLabel}`]: {fill: '#FFFFFF',},}})}   yAxis={[{ scaleType: 'band', data: item }]}
+                        <BarChart layout="horizontal" borderRadius={15} sx={(theme) => ({[`.${axisClasses.root}`]:{[`.${axisClasses.tick}, .${axisClasses.line}`]: {stroke: '#FFFFFF',strokeWidth: 3},[`.${axisClasses.tickLabel}`]: {fill: '#FFFFFF',},}})}   yAxis={[{ scaleType: 'band', data: item }]}
                         series={[{ data: income,color: '#c2e358'}]} width={500}height={300}>
                         </BarChart>
                     </Container>

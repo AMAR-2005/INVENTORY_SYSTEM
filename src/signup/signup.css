@@ -2,7 +2,7 @@ body {
     margin: 0;
   }
   .back{
-    background:url('/Users/amarnathkg/Documents/ReactCC/project/src/luke-chesser-pJadQetzTkI-unsplash.jpg');
+    background:url('/Users/amarnathkg/Documents/Projects/InventoryManagement/project/src/luke-chesser-pJadQetzTkI-unsplash.jpg');
     display:flex;
     align-items: center;
     background-size: cover;

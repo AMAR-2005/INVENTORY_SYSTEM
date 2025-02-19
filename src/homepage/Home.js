@@ -30,6 +30,7 @@ function Home() {
   const navi=useNavigate();
   const {dash,invn,sale,purc,toggleChange,report }=useContext(context);
   const [nav, setNav] = React.useState(false);
+  
   const toggleDrawer = (newOpen) => () => {
     setNav(newOpen);
   };

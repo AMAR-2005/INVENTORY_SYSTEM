@@ -1,4 +1,4 @@
-import React,{useContext, useState} from 'react'
+import React,{useContext, useEffect, useState} from 'react'
 import axios from 'axios';
 import {context} from '../ContextAPI';
 import Grid from '@mui/material/Grid2';
@@ -7,17 +7,19 @@ import { Box,  Container,  Paper, Typography, } from '@mui/material'
 import { teal , blue, indigo, pink} from '@mui/material/colors'
 function Report() {
     const [data,setData]=useState([]);
-    const {earn,item,TotalItems,income,sales,chartData}=useContext(context);
+    const {earn,TotalItems,chartData}=useContext(context);
     const palette = ['#546e7a', '#e91e63',"#1a237e","#00796b","#7e57c2","#78909c","#9c27b0","#ce93d8","#26c6da","#29b6f6","#ffa726"];
-  
-    const logReder=()=>{
-        axios.get("http://localhost:3000/item")
-        .then((response)=>{
-            setData(response.data);
-        })
-        console.log(chartData)
-    }
-    logReder();
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get("http://localhost:3000/item");
+                setData(response.data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+        fetchData();
+    }, [context]);
     data.sort((a, b) => b.sale - a.sale);
     const len=data.length;
   return (
